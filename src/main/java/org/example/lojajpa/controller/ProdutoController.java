@@ -44,5 +44,7 @@ public class ProdutoController {
     }
 
     @GetMapping("/buscar")
-    public void buscarPorNome
+    public List<Produto> buscarPorNome(@RequestParam String nome){
+        return service.buscarPorNome(nome);
+    }
 }

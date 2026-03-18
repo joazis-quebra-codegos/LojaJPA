@@ -10,6 +10,7 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
+@Table(name = "TBPRODUTOS")
 public class Produto {
 
     @Id
@@ -22,6 +23,9 @@ public class Produto {
     @NotNull(message = "Preencha um preço para o produto")
     @Positive(message = "Valores positivos apenas")
     private Double preco;
+
+    @Positive
+    private Integer quantidade;
 
     public Produto(){
 
