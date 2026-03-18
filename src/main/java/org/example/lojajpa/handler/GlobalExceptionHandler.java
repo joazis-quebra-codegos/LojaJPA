@@ -22,4 +22,12 @@ public class GlobalExceptionHandler {
         return erros;
 
     }
+
+    @ExceptionHandler(RuntimeException.class)
+    @ResponseStatus(HttpStatus.NOT_FOUND)
+    public Map<String, String> tratarErro(RuntimeException ex){
+        Map<String, String> erro = new HashMap<>();
+        erro.put("Erro", ex.getMessage());
+        return erro;
+    }
 }

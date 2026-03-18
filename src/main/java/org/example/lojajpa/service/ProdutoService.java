@@ -20,7 +20,8 @@ public class ProdutoService {
     }
 
     public Produto buscar(Long id){
-        return repository.findById(id).orElse(null);
+        return repository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Produto não foi encontrado"));
     }
 
     public List<Produto> listar(){
@@ -29,5 +30,9 @@ public class ProdutoService {
 
     public void deletar(Long id){
         repository.deleteById(id);
+    }
+
+    public List<Produto> buscarPorNome(String nome){
+        return repository.findByNomeContainingIgnoreCase(nome);
     }
 }

@@ -42,4 +42,7 @@ public class ProdutoController {
     public void deletar(@PathVariable Long id){
         service.deletar(id);
     }
+
+    @GetMapping("/buscar")
+    public void buscarPorNome
 }
