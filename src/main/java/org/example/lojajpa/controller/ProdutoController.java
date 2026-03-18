@@ -1,5 +1,6 @@
 package org.example.lojajpa.controller;
 
+import jakarta.validation.Valid;
 import org.example.lojajpa.model.Produto;
 import org.example.lojajpa.service.ProdutoService;
 import org.springframework.web.bind.annotation.*;
@@ -22,7 +23,7 @@ public class ProdutoController {
     }
 
     @PostMapping
-    public Produto criar(@RequestBody Produto produto){
+    public Produto criar(@RequestBody @Valid Produto produto){
         return service.salvar(produto);
     }
 
